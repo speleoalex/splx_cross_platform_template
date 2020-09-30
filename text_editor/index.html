@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>text editor</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/libs/jquery/flot/excanvas.min.js"></script><![endif]-->
+        <script language="javascript" type="text/javascript" src="js/config.js"></script>
+        <script language="javascript" type="text/javascript" src="js/libs/jquery/jquery.js"></script>
+        <script language="javascript" type="text/javascript" src="js/libs/jquery/jquery.layout.js"></script>        
+        <script language="javascript" type="text/javascript" src="js/libs/splx/splx_utility.js"></script>
+        <script language="javascript" type="text/javascript" src="js/libs/splx/splx_i18n.js"></script>
+        <script language="javascript" type="text/javascript" src="js/libs/fileopensave/fileopensave.js"></script>
+        <script src="languages/it.js"></script>
+        <script src="languages/en.js"></script>
+        <script defer="defer" type="text/javascript" src="js/main.js"></script>
+        <script>
+            OnLoadData = function (data)
+            {
+                $('#rawdata').val(data);
+            }
+        </script>
+    </head>
+    <body>
+        <header class="ui-layout-north">
+            <div class="toolbar">
+                <a  onclick="fileopensave.OpenFile(OnLoadData,'text/*')"  href="#">
+                    <img src="res/document-open.png" title="Open file" /><span data-i18n="Aa" >open</span></a>
+                <a  onclick="fileopensave.SaveAs($('#rawdata').val())"  href="#">
+                    <img src="res/document-save.png" title="Save file" /><span data-i18n="Aa" >save</span></a>
+            </div>
+        </header>
+        <section class="ui-layout-center"><textarea style="white-space:normal;" id="rawdata" class="textarea"></textarea></section>
+        <script>
+            $(document).ready(function () {
+                var mainLayout = $('body').layout({
+                    applyDefaultStyles: true,
+                    north__closable: false, north__resizable: false, north__size: 34,
+                    east__size: 200, east__closable: true, east__resizable: true,
+                    south__size: 45, south__closable: true, south__resizable: false
+                });
+            });
+        </script>
+    </body>
+</html>
